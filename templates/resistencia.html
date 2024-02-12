@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block container %}
+{% import "_macrosex.html" as macros %}
+    <h1>Valor de las resistencias</h1>
+    
+    <form action="" method="POST" novalidate>
+        <div class="row">
+            <div class="form-group control-group col-xs-12 floting-label-form-control controls">
+                {{macros.resistencia(form.b1, class='form-control')}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group control-group col-xs-12 floting-label-form-control controls">
+                {{macros.resistencia(form.b2, class='form-control')}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group control-group col-xs-12 floting-label-form-control controls">
+                {{macros.resistencia(form.b3, class='form-control')}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group control-group col-xs-12 floting-label-form-control controls">
+                {{macros.resistencia(form.tol, class='form-control')}}
+            </div>
+        </div>
+        <input type="submit" id="btn1" name="btn1" value="Registrar" color="red">
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Color 1</th>
+                <th scope="col">Color 2</th>
+                <th scope="col">Color 3</th>
+                <th scope="col">Tolerancia</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Valor Minimo</th>
+                <th scope="col">Valor Maximo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="background-color: {{c1}}">{{color1}}</td>
+                <td style="background-color: {{c2}}">{{color2}}</td>
+                <td style="background-color: {{c3}}">{{color3}}</td>
+                <td style="background-color: {{c4}}">{{tol}}</td>
+                <td>{{val}}</td>
+                <td>{{maximo}}</td>
+                <td>{{minimo}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </form>
+
+{% endblock %}
