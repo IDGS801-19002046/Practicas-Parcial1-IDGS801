@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block container %}
+{% import "_macros1.html" as macros %}
+    <h1>Diccionario</h1>
+    
+    <form action="" method="POST" novalidate>
+        <div class="row">
+            <div class="form-group control-group col-xs-12 floting-label-form-control controls">
+                {{macros.diccionario(form.ing, class='form-control')}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group control-group col-xs-12 floting-label-form-control controls">
+                {{macros.diccionario(form.esp, class='form-control')}}
+            </div>
+        </div>
+        
+        <input type="submit" id="btn1" name="submitbtn" value="agregar" >
+
+        <div class="row">
+            <div class="form-group control-group col-xs-12 floting-label-form-control controls">
+                {{macros.diccionario(form.idioma, class='form-control')}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group control-group col-xs-12 floting-label-form-control controls">
+                {{macros.diccionario(form.buscar, class='form-control')}}
+            </div>
+        </div>
+
+        <input type="submit" id="btn2" name="submitbtn" value="leer" >
+         
+    </form>
+
+{% endblock %}

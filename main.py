@@ -1,7 +1,7 @@
 from flask import Flask,render_template,request
 
-import forms,formsexm
-import math
+import forms,formsexm,forms2
+import math,archivotxt
 
 
 app=Flask(__name__)
@@ -198,6 +198,29 @@ def Color(number):
         return "gray"
     elif number == 9:
         return "white"
+    
+@app.route("/diccionario", methods=['GET','POST'])
+def diccionario():
+    esp = ''
+    ing = ''
+    idioma=''
+    buscar= ''
+    
+    diccionario_clase = forms2.UserForm(request.form)
+    if request.method == 'POST'and diccionario_clase.validate():
+        esp = diccionario_clase.esp.data 
+        ing = diccionario_clase.ing.data
+        idioma = diccionario_clase.idioma.data
+        buscar = diccionario_clase.buscar.data
+        obj=archivotxt.Diccionario()
+        
+        if request.form['submitbtn']=='leer':
+            obj.buscar(idioma,buscar)
+        if request.form['submitbtn']=='agregar':
+            obj.buscar(ing,esp)
+        
+        
+    return render_template("diccionario.html", form=diccionario_clase, ing=ing, esp = esp, idioma=idioma, buscar=buscar)
        
 if __name__== "__main__":
     app.run(debug=True)
